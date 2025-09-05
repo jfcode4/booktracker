@@ -1,0 +1,12 @@
+extends layout.pug
+block content
+	h2 List of books
+	ul
+		each book, id in books
+			li
+				a(href='/book/'+id)=book
+	form(action='/add_book')
+		label(for='name') Add book:
+		input(name='name')
+	script.
+		window.history.replaceState('', '', '/')
