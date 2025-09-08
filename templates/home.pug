@@ -1,12 +1,23 @@
 extends layout.pug
 block content
 	h2 List of books
-	ul
-		each book, id in books
+	ul#booklist
+		each book in books
 			li
-				a(href='/book/'+id)=book
-	form(action='/add_book')
-		label(for='name') Add book:
-		input(name='name')
-	script.
-		window.history.replaceState('', '', '/')
+				a(href='/book/'+book.rowid)=book.name
+	h2 Add a book
+	form#addbook
+		table
+			tr
+				td(align='right') Name:
+				td
+					input(name='name')
+			tr
+				td(align='right') Pages: 
+				td
+					input(name='pages' type='number' value=100)
+			tr
+				td(colspan='2')
+					input(type='submit' value='Add')
+	script
+		include home.js

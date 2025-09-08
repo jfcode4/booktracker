@@ -1,4 +1,8 @@
 extends layout.pug
 block content
-	h2 Book info
-	i= book
+	h2= book.name
+	p You have read #[input(type='number' size='3' value=book.progress)] pages out of #{book.pages}.
+	button#deletebook Delete book
+	script
+		= "const rowid =" + book.rowid + ';'
+		include book.js
