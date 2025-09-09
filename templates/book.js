@@ -4,3 +4,12 @@ deletebook.addEventListener('click', (event) => {
 		location.href = '/'
 	})
 })
+
+function keypressed(event) {
+	if (event.key == 'Enter') {
+		const progress = inputbox.value
+		fetch(`/book/${rowid}?progress=${progress}`, {method: "PUT"}).then(response => {
+			console.log("Updated")
+		})
+	}
+}

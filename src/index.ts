@@ -52,6 +52,13 @@ function setup_routing() {
 		db.query('DELETE FROM books WHERE rowid=?').run(book_id)
 		res.status(204).end()
 	})
+
+	app.put('/book/:id', (req, res) => {
+		const book_id = req.params['id']
+		const progress = req.query['progress']
+		db.query('UPDATE books SET progress=? WHERE rowid=?').run(progress, book_id)
+		res.status(204).end()
+	})
 }
 
 

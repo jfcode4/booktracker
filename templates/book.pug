@@ -1,7 +1,7 @@
 extends layout.pug
 block content
 	h2= book.name
-	p You have read #[input(type='number' size='3' value=book.progress)] pages out of #{book.pages}.
+	p You have read #[input#inputbox(type='number' size='3' value=book.progress onkeypress='keypressed(event)')] pages out of #{book.pages}.
 	button#deletebook Delete book
 	script
 		= "const rowid =" + book.rowid + ';'
